@@ -1,6 +1,10 @@
 /*Debemos lograr tomar Los numeros por ID ,
 transformarlos a enteros (parseInt) y Sumarlos.
 Mostar el resulto por medio de "ALERT"*/
+
+/* De ahora en adelante nombrar las variable 
+de una forma mas autoexplicativa!!!*/
+
 function sumar()
 {
 	
