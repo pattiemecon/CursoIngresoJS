@@ -13,14 +13,43 @@ var contadorIntentos;
 function comenzar()
 {
 	//Genero el número RANDOM entre 1 y 100
+	numeroSecreto=Math.floor((Math.random()*100)+1);
 	 
 		//alert(numeroSecreto );
+
+	contadorIntentos=0;
+	document.getElementById('intentos').value=contadorIntentos;
 	
 
 }
 
 function verificar()
 {
-	
+	var numeroIngresado;
+	numeroIngresado=document.getElementById('numero').value;
+
+	contadorIntentos=contadorIntentos+1;
+	document.getElementById('intentos').value=contadorIntentos;
+
+	if(numeroIngresado>numeroSecreto)
+	{
+		alert("se paso...");
+	} //if(numeroIngresado>numeroSecreto)
+	else
+	{
+		if(numeroIngresado<numeroSecreto)
+		{
+			alert("falta...");
+		} //if(numeroIngresado<numeroSecreto)
+		else
+		{
+			alert("Usted es un ganador!!! y en solo "+contadorIntentos+" intentos");
+			contadorIntentos="";
+			document.getElementById('intentos').value=contadorIntentos;
+			numeroIngresado="";
+			document.getElementById('numero').value=numeroIngresado;
+			numeroSecreto="";
+		} //else(numeroIngresado<numeroSecreto)
+	} //else(numeroIngresado>numeroSecreto)
 	
 }
