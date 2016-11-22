@@ -28,7 +28,7 @@ function verificar()
 	var numeroIngresado;
 	numeroIngresado=document.getElementById('numero').value;
 
-	contadorIntentos=contadorIntentos+1;
+	contadorIntentos++;
 	document.getElementById('intentos').value=contadorIntentos;
 
 	if(numeroIngresado>numeroSecreto)

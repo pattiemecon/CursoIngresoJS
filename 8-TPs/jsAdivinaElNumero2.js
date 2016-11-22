@@ -15,14 +15,86 @@ var contadorIntentos;
 function comenzar()
 {
 	//Genero el número RANDOM entre 1 y 100
+	numeroSecreto=Math.floor((Math.random()*100)+1);
 	 
-	
+		//alert(numeroSecreto );
+
+	contadorIntentos=0;
+	document.getElementById('intentos').value=contadorIntentos;
 
 }
 
 function verificar()
 {
-	
+	var numeroIngresado;
+	numeroIngresado=document.getElementById('numero').value;
+
+	contadorIntentos++;
+	document.getElementById('intentos').value=contadorIntentos;
+
+	if(numeroIngresado>numeroSecreto)
+	{
+		alert("se paso...");
+	} //if(numeroIngresado>numeroSecreto)
+	else
+	{
+		if(numeroIngresado<numeroSecreto)
+		{
+			alert("falta...");
+		} //if(numeroIngresado<numeroSecreto)
+		else
+		{
+			if(contadorIntentos>10)
+			{
+				alert("afortunado en el amor!!");
+			}
+			else
+			{
+				if(contadorIntentos>5)
+				{
+					alert("falta técnica");
+				}
+				else
+				{
+					if(contadorIntentos==5)
+					{
+						alert("usted está en la media");
+					}
+					else
+					{
+						if(contadorIntentos==4)
+						{
+							alert("Excelente técnica");
+						}
+						else
+						{
+							if(contadorIntentos==3)
+							{
+								alert("Esto es suerte");
+							}
+							else
+							{
+								if(contadorIntentos==2)
+								{
+									alert("excelente percepción");
+								}
+								else
+								{
+									alert("usted es un Psíquico");
+								} //==2
+							} //==3
+						} //==4
+					} //==5
+				} //>5
+			} //>10
+			contadorIntentos="";
+			document.getElementById('intentos').value=contadorIntentos;
+			numeroIngresado="";
+			document.getElementById('numero').value=numeroIngresado;
+			numeroSecreto="";
+		} //else(numeroIngresado<numeroSecreto)
+	} //else(numeroIngresado>numeroSecreto)
+
 	
 
 }
