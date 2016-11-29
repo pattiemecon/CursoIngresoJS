@@ -20,6 +20,51 @@ function CalcularPrecio ()
  	cantidad=document.getElementById('Cantidad').value;
  	precioBruto=cantidad*35;
 
+ 	switch(cantidad)
+ 	{
+ 		case "5":
+ 			switch(marca)
+ 			{
+ 				case "ArgentinaLuz":
+ 					precioFinal=precioBruto*0.6;
+ 					break;
+ 				default:
+ 					precioFinal=precioBruto*0.7;
+ 			}
+ 			break;
+ 		case "4":
+ 			switch(marca)
+ 			{
+ 				case "ArgentinaLuz":
+ 				case "FelipeLamparas":
+ 					precioFinal=precioBruto*0.75;
+ 					break;
+ 				default:
+ 					precioFinal=precioBruto*0.8;
+ 			}
+ 			break;
+ 		case "3":
+ 			switch(marca)
+ 			{
+ 				case "ArgentinaLuz":
+ 					precioFinal=precioBruto*0.85;
+ 					break;
+ 				case "FelipeLamparas":
+ 					precioFinal=precioBruto*0.9;
+ 					break;
+ 				default:
+ 					precioFinal=precioBruto*0.95;
+ 			}
+ 			break;
+ 		case "2":
+ 		case "1":
+ 			precioFinal=precioBruto;
+ 			break;
+ 		default: //cantidad>5
+ 			precioFinal=precioBruto*0.5;
+ 	}
+
+ 	/*
  	if(cantidad>5)
  	{
  		precioFinal=precioBruto*0.5;
@@ -77,6 +122,7 @@ function CalcularPrecio ()
  			} //C.cantidad==4
  		} //B.cantidad==5
  	} //A.cantidad>5
+ 	*/
 
  	if(precioFinal>120)
  	{
