@@ -20,7 +20,7 @@ function Mostrar()
 	{
 		numeroIngresado=prompt("Ingrese un numero","0");
 		numeroIngresado=parseInt(numeroIngresado);
-		//console.log("-> "+numeroIngresado);
+		console.log("-> "+numeroIngresado);
 
 		if(numeroIngresado<0)
 		{
@@ -51,6 +51,7 @@ function Mostrar()
 	promedioNegativos=sumaNegativos/cantidadNegativos;
 	diferenciaPosNeg=sumaPositivos-sumaNegativos;
 
+	document.write("<h1>RESULTADOS EJERCICIO 10</h1>");
 	document.write("<br>1-Suma de los negativos. "+sumaNegativos);
 	document.write("<br>2-Suma de los positivos. "+sumaPositivos);
 	document.write("<br>3-Cantidad de positivos. "+cantidadPositivos);
