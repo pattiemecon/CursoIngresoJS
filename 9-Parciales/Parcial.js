@@ -143,3 +143,152 @@ function PuntoCinco
     } //(diaSemana=="Lunes" || diaSemana=="Martes" || diaSemana=="Miércoles" || diaSemana=="Jueves" || diaSemana=="Viernes")
     */
 } //FIN PuntoCinco
+
+function PuntoSeis
+{
+    var diasHabiles=24;
+    var importeVenta;
+    var importeMayor;
+    var importeMenor;
+
+    for(var contadorDias=0;contadorDias<diasHabiles;contadorDias++)
+    {
+        importeVenta=prompt("Ingrese importe de venta del dia "+(parseInt(contadorDias)+1));
+        while(importeVenta<=0)
+        {
+            importeVenta=prompt("REingrese importe de venta del dia "+(parseInt(contadorDias)+1));
+        }
+        importeVenta=parseInt(importeVenta);
+
+        if(contadorDias==0)
+        {
+            importeMenor=importeVenta;
+            importeMayor=importeVenta;
+        }
+        else
+        {
+            if(importeVenta>importeMayor)
+            {
+                importeMayor=importeVenta;
+            }
+            else
+            {
+                if(importeVenta<importeMenor)
+                {
+                    importeMenor=importeVenta;
+                } //(importeVenta<importeMenor)
+            } //(importeVenta>importeMayor)
+        } //(contadorDias==0)
+    }
+
+    alert("Importe Mayor: "+importeMayor+" - Importe Menor: "+importeMenor);
+} //FIN PuntoSeis
+
+function PuntoSiete
+{
+    var cantidadAlumnos=100;
+    var notaAlumno;
+    var sexoAlumno;
+    var notaMenor;
+    var sumaNotas=0;
+    var contadorVaronesMayor6=0;
+    var promedioNotas;
+
+    for(var contadorAlumnos=0;contadorAlumnos<cantidadAlumnos;contadorAlumnos++)
+    {
+        notaAlumno=prompt("Ingrese nota del alumno "+(parseInt(contadorAlumnos)+1));
+        while(notaAlumno<0 || notaAlumno>10)
+        {
+            notaAlumno=prompt("REingrese nota del alumno "+(parseInt(contadorAlumnos)+1));
+        }
+        notaAlumno=parseInt(notaAlumno);
+
+        sexoAlumno=prompt("Ingrese sexo del alumno "+(parseInt(contadorAlumnos)+1));
+        while(sexoAlumno!="f" && sexoAlumno!="m")
+        {
+            sexoAlumno=prompt("REingrese sexo del alumno "+(parseInt(contadorAlumnos)+1));
+        }
+
+        sumaNotas=sumaNotas+notaAlumno;
+
+        if(contadorAlumnos==0)
+        {
+            notaMenor=notaAlumno;
+        }
+        else
+        {
+            if(notaAlumno<notaMenor)
+            {
+                notaMenor=notaAlumno;
+            } //(notaAlumno<notaMenor)
+        } //(contadorAlumnos==0)
+
+        if(sexoAlumno=="m" && notaAlumno>=6)
+        {
+            contadorVaronesMayor6++;
+        }
+    }
+
+    promedioNotas=sumaNotas/cantidadAlumnos;
+
+    alert("Promedio: "+promedioNotas+" - Nota Menor: "+notaMenor+" - Cant. Varones con Nota mayor o igual a 6: "+contadorVaronesMayor6);    
+} //FIN PuntoSiete
+
+function PuntoOcho
+{
+    var continuaCarga="si";
+    var numeroIngresado;
+    var numeroMayor;
+    var numeroMenor;
+    var contadorNumeros=0;
+    var sumaNumeros=0;
+    var promedioNumeros;
+    var contadorPares=0;
+
+    while(continuaCarga=="si")
+    {
+        numeroIngresado=prompt("Ingrese un numero positivo");
+        while(numeroIngresado<=0)
+        {
+            numeroIngresado=prompt("REingrese un numero positivo");
+        }
+        numeroIngresado=parseInt(numeroIngresado);
+
+        if(contadorNumeros==0)
+        {
+            numeroMenor=numeroIngresado;
+            numeroMayor=numeroIngresado;
+        }
+        else
+        {
+            if(numeroIngresado>numeroMayor)
+            {
+                numeroMayor=numeroIngresado;
+            }
+            else
+            {
+                if(numeroIngresado<numeroMenor)
+                {
+                    numeroMenor=numeroIngresado;
+                } //(numeroIngresado<numeroMenor)
+            } //(numeroIngresado>numeroMayor)
+        } //(contadorNumeros==0)
+        contadorNumeros++;
+        sumaNumeros=sumaNumeros+numeroIngresado;
+
+        if(numeroIngresado%2==0)
+        {
+            contadorPares++;
+        }
+
+        continuaCarga=prompt("Continua con la carga de numeros? (si/no)","si");
+    }
+
+    promedioNumeros=sumaNumeros/contadorNumeros;
+
+    document.write("<br>a) cantidad de numeros pares: "+contadorPares);
+    document.write("<br>b) promedio de todos los numeros ingresados: "+promedioNumeros);
+    document.write("<br>c) suma de todos los numeros: "+sumaNumeros);
+    document.write("<br>d) numero maximo: "+numeroMayor);
+    document.write("<br>d) numero minimo: "+numeroMenor);   
+}

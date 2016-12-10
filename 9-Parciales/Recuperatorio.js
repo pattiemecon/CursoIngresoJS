@@ -148,3 +148,152 @@ function PuntoCinco
     } //(mes=="Enero")
     */
 } //FIN PuntoCinco
+
+function PuntoSeis
+{
+    var cantidadContenedores=50;
+    var pesoContenedor;
+    var pesoMayor;
+    var pesoMenor;
+
+    for(var contadorDias=0;contadorDias<cantidadContenedores;contadorDias++)
+    {
+        pesoContenedor=prompt("Ingrese peso del Contenedor "+(parseInt(contadorDias)+1));
+        while(pesoContenedor<=0)
+        {
+            pesoContenedor=prompt("REingrese peso del Contenedor "+(parseInt(contadorDias)+1));
+        }
+        pesoContenedor=parseInt(pesoContenedor);
+
+        if(contadorDias==0)
+        {
+            pesoMenor=pesoContenedor;
+            pesoMayor=pesoContenedor;
+        }
+        else
+        {
+            if(pesoContenedor>pesoMayor)
+            {
+                pesoMayor=pesoContenedor;
+            }
+            else
+            {
+                if(pesoContenedor<pesoMenor)
+                {
+                    pesoMenor=pesoContenedor;
+                } //(pesoContenedor<pesoMenor)
+            } //(pesoContenedor>pesoMayor)
+        } //(contadorDias==0)
+    }
+
+    alert("Contenedor mas pesado: "+pesoMayor+" - Contenedor menos pesado: "+pesoMenor);
+} //FIN PuntoSeis
+
+function PuntoSiete
+{
+    var cantidadPersonas=100;
+    var edadPersona;
+    var sexoPersona;
+    var edadMenor;
+    var sumaEdades=0;
+    var contadorVaronesMayor20=0;
+    var promedioEdades;
+
+    for(var contadorPersonas=0;contadorPersonas<cantidadPersonas;contadorPersonas++)
+    {
+        edadPersona=prompt("Ingrese edad de la Persona "+(parseInt(contadorPersonas)+1));
+        while(edadPersona<0 || edadPersona>100)
+        {
+            edadPersona=prompt("REingrese edad de la Persona "+(parseInt(contadorPersonas)+1));
+        }
+        edadPersona=parseInt(edadPersona);
+
+        sexoPersona=prompt("Ingrese sexo de la Persona "+(parseInt(contadorPersonas)+1));
+        while(sexoPersona!="f" && sexoPersona!="m")
+        {
+            sexoPersona=prompt("REingrese sexo de la Persona "+(parseInt(contadorPersonas)+1));
+        }
+
+        sumaEdades=sumaEdades+edadPersona;
+
+        if(contadorPersonas==0)
+        {
+            edadMenor=edadPersona;
+        }
+        else
+        {
+            if(edadPersona<edadMenor)
+            {
+                edadMenor=edadPersona;
+            } //(edadPersona<edadMenor)
+        } //(contadorPersonas==0)
+
+        if(sexoPersona=="m" && edadPersona>=20)
+        {
+            contadorVaronesMayor20++;
+        }
+    }
+
+    promedioEdades=sumaEdades/cantidadPersonas;
+
+    alert("Promedio: "+promedioEdades+" - Edad Menor: "+edadMenor+" - Cant. Varones con Edad mayor o igual a 20: "+contadorVaronesMayor20);
+} //FIN PuntoSiete
+
+function PuntoOcho
+{
+    var continuaCarga="si";
+    var numeroIngresado;
+    var numeroMayor;
+    var numeroMenor;
+    var contadorNumeros=0;
+    var sumaNumeros=0;
+    var promedioNumeros;
+    var contadorPares=0;
+
+    while(continuaCarga=="si")
+    {
+        numeroIngresado=prompt("Ingrese un numero positivo");
+        while(numeroIngresado<=0)
+        {
+            numeroIngresado=prompt("REingrese un numero positivo");
+        }
+        numeroIngresado=parseInt(numeroIngresado);
+
+        if(contadorNumeros==0)
+        {
+            numeroMenor=numeroIngresado;
+            numeroMayor=numeroIngresado;
+        }
+        else
+        {
+            if(numeroIngresado>numeroMayor)
+            {
+                numeroMayor=numeroIngresado;
+            }
+            else
+            {
+                if(numeroIngresado<numeroMenor)
+                {
+                    numeroMenor=numeroIngresado;
+                } //(numeroIngresado<numeroMenor)
+            } //(numeroIngresado>numeroMayor)
+        } //(contadorNumeros==0)
+        contadorNumeros++;
+        sumaNumeros=sumaNumeros+numeroIngresado;
+
+        if(numeroIngresado%2==0)
+        {
+            contadorPares++;
+        }
+
+        continuaCarga=prompt("Continua con la carga de numeros? (si/no)","si");
+    }
+
+    promedioNumeros=sumaNumeros/contadorNumeros;
+
+    document.write("<br>a) cantidad de numeros pares: "+contadorPares);
+    document.write("<br>b) promedio de todos los numeros ingresados: "+promedioNumeros);
+    document.write("<br>c) suma de todos los numeros: "+sumaNumeros);
+    document.write("<br>d) numero maximo: "+numeroMayor);
+    document.write("<br>d) numero minimo: "+numeroMenor);
+} //FIN PuntoOcho
